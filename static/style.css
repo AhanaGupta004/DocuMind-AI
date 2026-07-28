@@ -1,0 +1,525 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #0b0d12;
+    color: #f5f7fa;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+}
+
+
+/* ---------------- SIDEBAR ---------------- */
+
+.sidebar {
+    width: 310px;
+    background: #11141b;
+    border-right: 1px solid #252a35;
+
+    padding: 28px 22px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 42px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 800;
+    font-size: 20px;
+
+    background: linear-gradient(
+        135deg,
+        #7c5cff,
+        #38bdf8
+    );
+}
+
+.logo h2 {
+    font-size: 19px;
+}
+
+.logo span {
+    font-size: 12px;
+    color: #7f8797;
+}
+
+.documents-title {
+    font-size: 11px;
+    letter-spacing: 1.4px;
+
+    color: #777f8f;
+
+    margin-bottom: 12px;
+}
+
+
+/* ---------------- UPLOAD ---------------- */
+
+.upload-box {
+    border: 1px dashed #3c4352;
+
+    border-radius: 15px;
+
+    padding: 26px 15px;
+
+    text-align: center;
+
+    transition: 0.25s;
+
+    margin-bottom: 20px;
+}
+
+.upload-box:hover,
+.upload-box.dragging {
+    border-color: #7c5cff;
+    background: #171927;
+}
+
+.upload-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #8b75ff;
+}
+
+.upload-box h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+}
+
+.upload-box p {
+    font-size: 12px;
+    color: #777f8f;
+    margin-bottom: 15px;
+}
+
+.upload-box button {
+    background: #222633;
+    color: white;
+
+    border: 1px solid #343947;
+
+    padding: 9px 16px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.upload-box button:hover {
+    background: #303545;
+}
+
+
+/* ---------------- DOCUMENT ---------------- */
+
+.document-card {
+    display: none;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px;
+
+    background: #191d26;
+
+    border: 1px solid #292e39;
+
+    border-radius: 12px;
+}
+
+.pdf-icon {
+    background: #38252b;
+    color: #ff7d8a;
+
+    padding: 9px 7px;
+
+    border-radius: 7px;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.document-info {
+    overflow: hidden;
+}
+
+.document-info strong {
+    display: block;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    font-size: 13px;
+}
+
+.document-info span {
+    font-size: 11px;
+    color: #55d58b;
+}
+
+
+/* ---------------- SIDEBAR FOOTER ---------------- */
+
+.sidebar-footer {
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #242833;
+
+    color: #a2a8b5;
+
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.sidebar-footer span {
+    margin-left: auto;
+    color: #676f7f;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    background: #4ade80;
+
+    border-radius: 50%;
+}
+
+
+/* ---------------- MAIN ---------------- */
+
+.main {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+header {
+    height: 100px;
+
+    border-bottom: 1px solid #20242d;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+}
+
+header h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #777f8f;
+    font-size: 13px;
+}
+
+.online {
+    padding: 8px 12px;
+
+    background: #14221b;
+
+    border: 1px solid #21432e;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    color: #77db9b;
+}
+
+.online span {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    background: #4ade80;
+
+    border-radius: 50%;
+
+    margin-right: 5px;
+}
+
+
+/* ---------------- CHAT ---------------- */
+
+.chat {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 35px max(40px, calc((100% - 850px) / 2));
+}
+
+.welcome {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.brain {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #6d4aff,
+        #319ad7
+    );
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.welcome h2 {
+    font-size: 27px;
+    margin-bottom: 10px;
+}
+
+.welcome p {
+    color: #808797;
+    font-size: 14px;
+}
+
+.suggestions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.suggestions button {
+    background: #151820;
+
+    border: 1px solid #292e38;
+
+    color: #aab0bd;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+}
+
+.suggestions button:hover {
+    border-color: #6250c9;
+    color: white;
+}
+
+
+/* ---------------- MESSAGES ---------------- */
+
+.message {
+    display: flex;
+
+    margin-bottom: 24px;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message-content {
+    max-width: 75%;
+
+    padding: 14px 17px;
+
+    border-radius: 15px;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+
+    white-space: pre-wrap;
+}
+
+.user .message-content {
+    background: #6c4df6;
+}
+
+.ai .message-content {
+    background: #171a22;
+
+    border: 1px solid #282d38;
+}
+
+.ai-label {
+    color: #8c7aff;
+
+    font-size: 11px;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+}
+
+
+/* ---------------- INPUT ---------------- */
+
+.input-section {
+    padding: 15px 40px 22px;
+
+    border-top: 1px solid #1d212a;
+}
+
+.input-container {
+    max-width: 850px;
+
+    margin: auto;
+
+    display: flex;
+
+    background: #171a22;
+
+    border: 1px solid #303541;
+
+    border-radius: 14px;
+
+    padding: 7px;
+}
+
+.input-container:focus-within {
+    border-color: #6d57e7;
+}
+
+.input-container input {
+    flex: 1;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: white;
+
+    padding: 11px 13px;
+
+    font-size: 14px;
+}
+
+.input-container button {
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #7053f5;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.input-container button:hover {
+    background: #8067f7;
+}
+
+.hint {
+    max-width: 850px;
+
+    margin: 8px auto 0;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #555d6b;
+}
+
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    header {
+        padding: 0 20px;
+    }
+
+    header p {
+        display: none;
+    }
+
+    .chat {
+        padding: 25px 20px;
+    }
+
+    .input-section {
+        padding: 12px 15px;
+    }
+
+    .message-content {
+        max-width: 90%;
+    }
+}
